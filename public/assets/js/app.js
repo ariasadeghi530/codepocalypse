@@ -16,7 +16,16 @@ document.addEventListener('click', event => {
         }
       })
       .then((items) => {
-        console.log(items);
+        axios.get('/api/items')
+        .then( ({data}) => {
+          document.getElementById('list').innerHTML = '';
+          for (let i=0; i < data.length; i++) {
+            let item = document.createElement('li')
+            item.className = 'list-group-item'
+            console.log(data)
+            item.innerHTML = ``
+          }
+        })
       })
     })
     .catch(e => console.log(e));
