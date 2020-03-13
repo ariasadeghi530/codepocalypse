@@ -17,14 +17,15 @@ document.addEventListener('click', event => {
       })
       .then(({data}) => {
         
-        document.getElementById('list').innerHTML = '';
+        document.getElementById('inventory').innerHTML = '';
 
         for(let i = 0; i < data.length; ++i){
-          let item = document.createElement('li');
-          item.classList = "list-group-item ";
-          item.id = `${data[i]._id}`
+          let item = document.createElement('button');
+          item.classList = "dropdown-item";
+          item.type = "button"; 
+          item.id = `addItem`;
           item.innerHTML = `${data[i].name}`;
-          document.getElementById('list').append(item);
+          document.getElementById('inventory').append(item);
         }
       })
     })
@@ -45,8 +46,8 @@ document.addEventListener('click', event => {
 
   }
 
-  if(event.target.className === 'list-group-item'){
-    console.log(event.target.value);
-  }
+  // if(event.target.className === 'list-group-item'){
+  //   console.log(event.target.value);
+  // }
 
 })
