@@ -3,6 +3,7 @@ const router = require('express').Router();
 const { User } = require('../models');
 
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 // Get one user
 // router.get('/users/:id', (req, res) => {
@@ -24,12 +25,12 @@ router.post('/users/login', (req, res) => {
       isLoggedIn: !!user,
       items: user.items,
       user: user.username,
-      token: jwt.sign({ id: user._id }, SECRET)
+      token: jwt.sign({ id: user._id }, process.env.SECRET)
     });
   })
 })
 
-router.post('/user/register', (req, res) => {
+router.post('/users/register', (req, res) => {
   User.register(new User({
     username: req.body.username,
     email: req.body.emails
@@ -39,5 +40,10 @@ router.post('/user/register', (req, res) => {
   })
 })
 
+router.put('/users/:itemid', passport.authenticate('jwt'), (req, res) => {
+  User.findByIdandUpdate(req.user._id, { $push: { items: req.params.id}})
+  .then(() => res.sendStatus(200))
+  .catch(e => console.log(e));
+});
 
 module.exports = router;

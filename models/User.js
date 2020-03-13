@@ -1,7 +1,5 @@
 const { model, Schema } = require('mongoose');
 
-
-
 const UserSchema = new Schema({
   username: String,
   email: String,
@@ -16,4 +14,4 @@ const UserSchema = new Schema({
 UserSchema.plugin(require('passport-local-mongoose'));
 
 
-module.exports = models('user', UserSchema);
+module.exports = model('user', UserSchema);
