@@ -4,6 +4,7 @@ const passport = require('passport');
 const { Item, User } = require('../models');
 
 
+
 // Get all items
 router.get('/items', passport.authenticate('jwt'), (req, res) => {
   Item.find()
