@@ -1,7 +1,7 @@
 
 require('dotenv').config();
 
-module.exports = require('mongoose').connect('mongodb://localhost/homegooods',
+module.exports = require('mongoose').connect('mongodb://localhost/homegoods',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
