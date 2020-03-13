@@ -18,6 +18,18 @@
   margin-top: -3rem;
 }
 
+.tpImage {
+  border-style: initial;
+  border-radius: 1.5rem;
+  margin-top: -2rem;
+  width: 12rem;
+}
+
+.tpImageSpan {
+  float: right;
+  border-radius: 0.5rem;
+}
+
 input:not([type]),
 input[type=text]:not(.browser-default),
 input[type=password]:not(.browser-default),
@@ -110,10 +122,12 @@ label {
   opacity: 1;
   cursor: pointer;
 }
+
 h4.display-5 {
   font-weight: 400;
   color: #0077ff;
 }
+
 .list-group-item {
   position: relative;
   display: block;
