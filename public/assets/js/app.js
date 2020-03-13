@@ -29,6 +29,8 @@ document.addEventListener('click', event => {
         }
       })
     })
+    document.getElementById('signIn').setAttribute('disabled', true),
+    document.getElementById('signOut').removeAttribute("disabled")
     .catch(e => console.log(e));
 
   }
@@ -40,6 +42,7 @@ document.addEventListener('click', event => {
       password: document.getElementById('password').value
     })
       .then((response) => {
+        document.getElementById('createUser').setAttribute('disabled', true)
         console.log(response);
       })
       .catch(e => console.log(e));
