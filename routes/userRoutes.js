@@ -4,7 +4,10 @@ const passport = require('passport');
 
 const { User } = require('../models');
 
+const passport = require('passport');
+
 const jwt = require('jsonwebtoken');
+
 require('dotenv').config();
 
 // Get one user
