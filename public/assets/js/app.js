@@ -1,4 +1,4 @@
-
+let userToken;
 document.addEventListener('click', event => {
   
   if(event.target.id === 'signIn'){
@@ -8,6 +8,7 @@ document.addEventListener('click', event => {
       password: document.getElementById('password').value
     })
     .then( ({data}) => {
+      userToken = data.token;
       document.getElementById('username').value = '';
       document.getElementById('password').value = '';
       document.getElementById('signInStatus').textContent = `Currently signed in as ${data.user}`
@@ -18,14 +19,15 @@ document.addEventListener('click', event => {
       })
       .then(({data}) => {
         
-        document.getElementById('list').innerHTML = '';
+        document.getElementById('inventory').innerHTML = '';
 
         for(let i = 0; i < data.length; ++i){
-          let item = document.createElement('li');
-          item.classList = "list-group-item ";
-          item.id = `${data[i]._id}`
+          let item = document.createElement('button');
+          item.classList = "dropdown-item";
+          item.type = "button"; 
+          item.id = `${data[i]._id}`;
           item.innerHTML = `${data[i].name}`;
-          document.getElementById('list').append(item);
+          document.getElementById('inventory').append(item);
         }
       })
     })
@@ -46,8 +48,23 @@ document.addEventListener('click', event => {
 
   }
 
-  if(event.target.className === 'list-group-item'){
-    console.log(event.target.id);
+  if(event.target.className === 'dropdown-item'){
+    console.log(userToken)
+    console.log(`Bearer ${userToken}`)
+    axios.put(`/api/users/${event.target.id}`, {}, {
+      headers: {
+        'Authorization': `Bearer ${userToken}`
+      }
+    }).then(({data}) => {
+      console.log(data);
+      document.getElementById('list').innerHTML = '';
+      for(let i = 0; i < data.items.length; ++i){
+        let inventoryItem = document.createElement('li');
+        inventoryItem.classList = "list-group-item";
+        inventoryItem.innerHTML = `${data.items[i].name}`;
+        document.getElementById('list').append(inventoryItem);
+      }
+    }).catch( e => console.log(e))
   }
 
 })

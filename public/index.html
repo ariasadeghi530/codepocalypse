@@ -39,7 +39,7 @@
     </div>
     <div class="row rise-up">
       <div class="jumbotron col-md-6">
-        <form>
+        <!-- <form>
           <div class="form-group">
             <label for="item">Item:</label>
             <input type="text" class="form-control" id="item">
@@ -49,8 +49,28 @@
             <label class="form-check-label" for="isDone">Add to Wagon</label>
           </div>
           <button id="createItem" type="submit" class="btn btn-primary">Add Items</button>
-        </form>
+        </form> -->
+        <!-- Testing dropdown button -->
+          <p class="lead">Click below to dig through the rubble pile and add an item to your wagon.</p>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Add Item
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+             <div id="inventory"></div>
+    
+            </div>
+          </div>
       </div>
+     
+
+    
+
+
+
+
+
       <div class="jumbotron col-md-6">
         <ul id="list" class="list-group">
           <li class="list-group-item">You must sign in to view our inventory</li>
