@@ -1,5 +1,4 @@
 const router = require('express').Router();
-
 const passport = require('passport');
 
 const { Item, User } = require('../models');
@@ -9,7 +8,7 @@ const { Item, User } = require('../models');
 router.get('/items', passport.authenticate('jwt'), (req, res) => {
   Item.find()
     .then((items) => {
-     res.json(items);
+      res.json(items);
     })
     .catch(e => console.log(e));
 });
