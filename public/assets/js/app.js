@@ -26,7 +26,7 @@ document.addEventListener('click', event => {
           let item = document.createElement('button');
           item.classList = "dropdown-item";
           item.type = "button"; 
-          item.id = `${data[i]._id}`;
+          item.id = `${data[i].name}`;
           item.innerHTML = `${data[i].name}`;
           document.getElementById('inventory').append(item);
         }
