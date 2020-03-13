@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const passport = require('passport');
 
 const { User } = require('../models');
 
@@ -41,9 +42,9 @@ router.post('/users/register', (req, res) => {
 })
 
 router.put('/users/:itemid', passport.authenticate('jwt'), (req, res) => {
-  User.findByIdandUpdate(req.user._id, { $push: { items: req.params.id}})
-  .then(() => res.sendStatus(200))
-  .catch(e => console.log(e));
+  User.findByIdandUpdate(req.user._id, { $push: { items: req.params.id } })
+    .then(() => res.sendStatus(200))
+    .catch(e => console.log(e));
 });
 
 module.exports = router;
