@@ -46,7 +46,7 @@ document.addEventListener('click', event => {
   }
 
   if(event.target.className === 'list-group-item'){
-    console.log(event.target.value);
+    console.log(event.target.id);
   }
 
 })

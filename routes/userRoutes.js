@@ -42,8 +42,8 @@ router.post('/users/register', (req, res) => {
 })
 
 router.put('/users/:itemid', passport.authenticate('jwt'), (req, res) => {
-  User.findByIdandUpdate(req.user._id, { $push: { items: req.params.id } })
-    .then(() => res.sendStatus(200))
+  User.findByIdAndUpdate(req.user._id, { $push: { items: req.params.itemid } })
+    .then((response) => res.json(response))
     .catch(e => console.log(e));
 });
 
