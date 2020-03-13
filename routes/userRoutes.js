@@ -33,8 +33,7 @@ router.post('/users/login', (req, res) => {
 
 router.post('/users/register', (req, res) => {
   User.register(new User({
-    username: req.body.username,
-    email: req.body.emails
+    username: req.body.username
   }), req.body.password, err => {
     if (err) throw err;
     res.sendStatus(200);
