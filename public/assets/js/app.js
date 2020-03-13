@@ -15,17 +15,17 @@ document.addEventListener('click', event => {
           'Authorization': `Bearer ${data.token}`
         }
       })
-      .then((items) => {
-        axios.get('/api/items')
-        .then( ({data}) => {
-          document.getElementById('list').innerHTML = '';
-          for (let i=0; i < data.length; i++) {
-            let item = document.createElement('li')
-            item.className = 'list-group-item'
-            console.log(data)
-            item.innerHTML = ``
-          }
-        })
+      .then(({data}) => {
+        
+        document.getElementById('list').innerHTML = '';
+
+        for(let i = 0; i < data.length; ++i){
+          let item = document.createElement('li');
+          item.classList = "list-group-item ";
+          item.id = `${data[i]._id}`
+          item.innerHTML = `${data[i].name}`;
+          document.getElementById('list').append(item);
+        }
       })
     })
     .catch(e => console.log(e));
@@ -43,6 +43,10 @@ document.addEventListener('click', event => {
       })
       .catch(e => console.log(e));
 
+  }
+
+  if(event.target.className === 'list-group-item'){
+    console.log(event.target.value);
   }
 
 })
