@@ -1,12 +1,4 @@
 const router = require('express').Router();
-<<<<<<< HEAD
-
-const passport = require('passport');
-
-const { User } = require('../models');
-
-=======
->>>>>>> c679abc9a48c61d7cdfac9a34fcef0a5e5621308
 const passport = require('passport');
 const { User } = require('../models');
 
