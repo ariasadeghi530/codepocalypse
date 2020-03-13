@@ -10,6 +10,7 @@ document.addEventListener('click', event => {
     .then( ({data}) => {
       document.getElementById('username').value = '';
       document.getElementById('password').value = '';
+      document.getElementById('signInStatus').textContent = `Currently signed in as ${data.user}`
       axios.get('/api/items', {
         headers: {
           'Authorization': `Bearer ${data.token}`
