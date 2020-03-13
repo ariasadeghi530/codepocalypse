@@ -4,6 +4,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const { Strategy: JWTStrategy, ExtractJwt } = require('passport-jwt');
 const { User } = require('./models');
+require('dotenv').config();
 
 
 const app = express();
@@ -22,7 +23,7 @@ passport.deserializeUser(User.deserializeUser());
 
 passport.use(new JWTStrategy({
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: SECRET
+  secretOrKey: process.env.SECRET
 }, (jwtPayload, cb) => User.findById(jwtPayload.id)
   .then(user => cb(null, user))
   .catch(err => cb(err))

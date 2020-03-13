@@ -1,0 +1,19 @@
+.badge-danger {
+  color: #fff;
+  height: 1.3rem;
+  background-color: #dc3545;
+  cursor: pointer;
+}
+
+.jumbotron {
+  border: 1px solid rgb(45, 139, 247);
+  border-radius: 0.5rem;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+
+.rise-up {
+  margin-top: -3rem;
+}
