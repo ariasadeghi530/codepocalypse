@@ -79,6 +79,12 @@ textarea.materialize-textarea {
   cursor: pointer;
 }
 
+.signOutBtn {
+  display: block;
+  position: relative;
+  margin-bottom: -3rem;
+  margin-left: auto;
+}
 
 .btn.disabled,
 .disabled.btn-large,
