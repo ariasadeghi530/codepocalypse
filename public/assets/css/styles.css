@@ -17,6 +17,7 @@
 .rise-up {
   margin-top: -3rem;
 }
+
 input:not([type]),
 input[type=text]:not(.browser-default),
 input[type=password]:not(.browser-default),
@@ -49,6 +50,7 @@ textarea.materialize-textarea {
   transition: box-shadow .3s, border .3s;
   transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
 }
+
 .btn,
 .btn-large,
 .btn-small {
@@ -95,6 +97,19 @@ textarea.materialize-textarea {
   color: #323232 !important;
   cursor: default;
 }
+
+label {
+  font-size: 1.2rem;
+  color: #7350feab;
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  opacity: 1;
+  cursor: pointer;
+}
+
 .list-group-item {
   position: relative;
   display: block;
@@ -102,6 +117,7 @@ textarea.materialize-textarea {
   /* background-color: #fff; */
   /* border: 1px solid rgba(0,0,0,.125); */
 }
+
 .display-4 {
   font-size: 3.5rem;
   font-weight: 800;
