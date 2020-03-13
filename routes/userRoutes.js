@@ -4,6 +4,8 @@ const { User } = require('../models');
 
 const jwt = require('jsonwebtoken');
 
+require('dotenv').config();
+
 // Get one user
 // router.get('/users/:id', (req, res) => {
 //   User.findById(req.params.id)
@@ -24,7 +26,7 @@ router.post('/users/login', (req, res) => {
       isLoggedIn: !!user,
       items: user.items,
       user: user.username,
-      token: jwt.sign({ id: user._id }, SECRET)
+      token: jwt.sign({ id: user._id }, process.env.SECRET)
     });
   })
 })
