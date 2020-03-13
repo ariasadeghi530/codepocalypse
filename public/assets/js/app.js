@@ -19,6 +19,7 @@ document.addEventListener('click', event => {
       })
       .then(({data}) => {
         
+        console.log(data);
         document.getElementById('inventory').innerHTML = '';
 
         for(let i = 0; i < data.length; ++i){
