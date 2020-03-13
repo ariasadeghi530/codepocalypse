@@ -17,7 +17,13 @@
 .rise-up {
   margin-top: -3rem;
 }
-
+.loginWarning {
+  border-radius: .5rem;
+  margin-top: -3rem;
+  background-color: #f0f8ffcc;
+  border: none;
+  color: #ff7f7fde;
+}
 input:not([type]),
 input[type=text]:not(.browser-default),
 input[type=password]:not(.browser-default),
